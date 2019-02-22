@@ -19,8 +19,8 @@ def scraper():
     mars =  mongo.db.mars
     mars_data = scrape_mars.scrape()
     mars.update({}, mars_data, upsert=True)
-    # return redirect("/", code=302)
-    return "Scrape was successful"
+    return redirect("/", code=302)
+    # return "Scrape was successful"
 
 
 if __name__ == "__main__":
