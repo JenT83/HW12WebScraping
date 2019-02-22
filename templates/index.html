@@ -19,24 +19,51 @@
 
     <div class="row" id="news">
       <div class="col-md-12">
-        <h3 class="heading">Latest Mars News</h3>
-        <p>{{mars.news.news_title}}</p>
+        <h2 class="heading">Latest Mars News</h2>
+        <h3 class="heading">{{mars.news.news_title}}</h3>
         <p>{{mars.news.news_p}}</p>
       </div>
     </div>
 
     <!-- need to fix the size of the picture -->
-    <div class="col-md-4" id="featuredimage">
-      <div class="col-md-4">
-        <h3 class="heading">Featured Mars Image</h3>
+    <div class="col-md-7" id="featuredimage">
+      <div class="col-md-7">
+        <h2 class="heading">Featured Mars Image</h2>
         <img src={{mars.fi.featured_image_url}} alt="featured_image">
       </div>
     </div>
 
-    <div class="row" id="news">
+    <div class="col-md-4" id="news">
       <div class="col-md-4">
-        <h3 class="heading">Current Weather on Mars</h3>
-        <p>{{mars.mtw}}</p>
+        <h2 class="heading">Current Weather on Mars</h2>
+        <p>{{mars.mtw.mars_weather}}</p>
+      </div>
+    </div>
+
+    <div class="col-md-4" id="table">
+      <div class="col-md-4">
+        <h2 class="heading">Mars Facts</h2>
+        {{mars.table.mars_table}}
+      </div>
+    </div>
+
+    <div class="card" id="hemi">
+      <h2 class="heading">Mars Hemispheres</h2>
+      <img class="card-img-bottom" src={{mars.hemi.link[0]}}>
+      <div class="card-body">
+        <p class="card-text">{{mars.hemi.title[0]}}</p>
+      </div>
+      <img class="card-img-bottom" src={{mars.hemi.link[1]}}>
+      <div class="card-body">
+        <p class="card-text">{{mars.hemi.title[1]}}</p>
+      </div>
+      <img class="card-img-bottom" src={{mars.hemi.link[2]}}>
+      <div class="card-body">
+        <p class="card-text">{{mars.hemi.title[2]}}</p>
+      </div>
+      <img class="card-img-bottom" src={{mars.hemi.link[3]}}>
+      <div class="card-body">
+        <p class="card-text">{{mars.hemi.title[3]}}</p>
       </div>
     </div>
 
