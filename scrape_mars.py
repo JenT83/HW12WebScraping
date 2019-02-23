@@ -20,7 +20,7 @@ def scrape():
     "fi": fi,
     "mtw": mtw,
     "table": table,
-    "hemi": marshemi}   
+    "hemi": hemi}   
 
     return data
 
@@ -78,12 +78,8 @@ def mars_table(browser):
     mars_facts = mars_facts.set_index(["Mars Characteristic", "Fact"])
     # put table into html code
     mars_facts_html = mars_facts.to_html()
-    # save to file
-    marsfactstable = mars_facts.to_html('marsfactstable.html')
-    print(marsfactstable)
-
-    table = {"mars_table": marsfactstable}
-    print(table)
+    table = {}
+    table["mars_table"]= mars_facts_html
 
     return table
 
@@ -99,7 +95,6 @@ def mars_hemi(browser):
     marshemi = []
     astro = soup.find_all('div', class_="description")
     links = browser.find_by_css("a.product-item h3")
-    links
         
     for i in range(len(links)):
         browser.find_by_css("a.product-item h3")[i].click()
