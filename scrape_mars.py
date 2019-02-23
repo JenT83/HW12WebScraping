@@ -11,7 +11,6 @@ def scrape():
     fi = mars_featuredimage(browser)
     mtw = mars_weather(browser)
     table = mars_table(browser)
-    hemi = mars_hemi(browser)
 
     browser.quit()
 
@@ -19,8 +18,7 @@ def scrape():
     data = {"news": news,
     "fi": fi,
     "mtw": mtw,
-    "table": table,
-    "hemi":hemi}   
+    "table": table}   
 
     return data
 
@@ -80,33 +78,9 @@ def mars_table(browser):
     mars_facts_html = mars_facts.to_html()
     # save to file
     marsfactstable = mars_facts.to_html('marsfactstable.html')
+    print(marsfactstable)
 
     table = {"mars_table": marsfactstable}
+    print(table)
 
     return table
-
-def mars_hemi(browser):
-    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    #splinter
-    executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
-    browser.visit(url)
-    html = browser.html
-    soup = bs(html, 'html.parser')
-
-    hemi = []
-    astro = soup.find_all('div', class_="description")
-    links = browser.find_by_css("a.product-item h3")
-    links
-        
-    for i in range(len(links)):
-        browser.find_by_css("a.product-item h3")[i].click()
-        sample_elem = browser.find_link_by_text('Sample').first
-        href = sample_elem['href']
-        title = browser.find_by_css("h2.title").text
-        hemi.append({
-        "link": href,
-        "title": title})
-        browser.back()
-
-    return hemi
