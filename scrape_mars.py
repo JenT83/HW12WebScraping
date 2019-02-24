@@ -66,6 +66,12 @@ def mars_weather(browser):
     p_mars_weather = results.text.split("pic")
     mars_weather = p_mars_weather[0].strip()
 
+    twitter = soup.find_all('div', class_="js-tweet-text-container")
+    for tweet in reversed(twitter):
+        if tweet.p.text.split(' ')[0] == "InSight":
+            p_mars_weather = tweet.p.text.split("pic")
+            mars_weather = p_mars_weather[0].strip()
+    
     twitter = {"mars_weather": mars_weather}
 
     return twitter 
